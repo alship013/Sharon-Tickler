@@ -56,7 +56,7 @@ async function sendEmail() {
 
     const sendBtn = document.getElementById('send-btn');
     const originalText = sendBtn.textContent;
-    
+
     try {
         sendBtn.textContent = 'Sending...';
         sendBtn.disabled = true;
@@ -71,14 +71,55 @@ async function sendEmail() {
 
         // Send email using EmailJS
         await emailjs.send('service_i1a9a8p', 'template_zwcnyle', templateParams);
-        
+
         showStatus('Email sent successfully to sj@genco-oil.com!', 'success');
-        
+
         // Generate a new fact after successful send
         setTimeout(() => {
             generateRandomFact();
         }, 2000);
-        
+
+    } catch (error) {
+        console.error('Error sending email:', error);
+        showStatus('Failed to send email. Please check your EmailJS configuration.', 'error');
+    } finally {
+        sendBtn.textContent = originalText;
+        sendBtn.disabled = false;
+    }
+}
+
+// Send email to Jenny function
+async function sendEmailToJenny() {
+    if (!currentFact) {
+        showStatus('Please generate a fact first!', 'error');
+        return;
+    }
+
+    const sendBtn = document.getElementById('send-jenny-btn');
+    const originalText = sendBtn.textContent;
+
+    try {
+        sendBtn.textContent = 'Sending...';
+        sendBtn.disabled = true;
+
+        // EmailJS parameters
+        const templateParams = {
+            to_email: 'jenny@genco-oil.com',
+            fact: currentFact,
+            from_name: 'Random Fact Sender',
+            subject: 'Here\'s an interesting random fact for you!'
+        };
+
+        // Send email using EmailJS
+        await emailjs.send('service_i1a9a8p', 'template_zwcnyle', templateParams);
+
+        showStatus('Email sent successfully to jenny@genco-oil.com!', 'success');
+
+        // Generate a new fact after successful send
+        setTimeout(() => {
+            generateRandomFact();
+        }, 2000);
+
     } catch (error) {
         console.error('Error sending email:', error);
         showStatus('Failed to send email. Please check your EmailJS configuration.', 'error');
@@ -105,7 +146,8 @@ function showStatus(message, type) {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('generate-btn').addEventListener('click', generateRandomFact);
     document.getElementById('send-btn').addEventListener('click', sendEmail);
-    
+    document.getElementById('send-jenny-btn').addEventListener('click', sendEmailToJenny);
+
     // Generate initial fact
     generateRandomFact();
 });
