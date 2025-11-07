@@ -3,23 +3,19 @@
 ## Development Commands
 - **Start local server**: `python -m http.server 8000` or `npx serve .`
 - **Open app**: Navigate to `http://localhost:8000`
-- **Validate HTML**: Use browser developer tools or online validators
-- **Test email functionality**: Configure EmailJS credentials first
+- **Validate HTML**: Use browser dev tools or W3C validator
+- **Test email**: Configure EmailJS credentials in script.js first
 
 ## Code Style Guidelines
-- **HTML**: Use semantic HTML5 tags, proper indentation (2 spaces)
-- **CSS**: BEM methodology for class names, mobile-first responsive design
-- **JavaScript**: ES6+ features, const/let instead of var, async/await for promises
-- **Imports**: Use CDN links for external libraries (EmailJS)
-- **Error Handling**: Try-catch blocks with user-friendly status messages
-- **Naming**: camelCase for variables, kebab-case for CSS classes
-- **Comments**: Minimal inline comments, focus on self-documenting code
+- **HTML**: Semantic HTML5, 2-space indentation, proper meta tags
+- **CSS**: BEM methodology, mobile-first, CSS Grid/Flexbox preferred
+- **JavaScript**: ES6+, const/let, async/await, arrow functions
+- **Imports**: CDN links only (EmailJS), no npm packages
+- **Error Handling**: Try-catch with user-friendly status messages
+- **Naming**: camelCase for JS, kebab-case for CSS, PascalCase for components
+- **Types**: No TypeScript, use JSDoc for type hints
+- **Formatting**: 2 spaces, no trailing whitespace, consistent line endings
 
 ## EmailJS Configuration
-- Replace `YOUR_PUBLIC_KEY_HERE` in script.js with actual EmailJS public key
-- Update `YOUR_SERVICE_ID` and `YOUR_TEMPLATE_ID` accordingly
+- Replace `YOUR_PUBLIC_KEY_HERE`, `YOUR_SERVICE_ID`, `YOUR_TEMPLATE_ID` in script.js
 - Test email functionality before deployment
-
-## File Structure
-- Keep all files in root directory (simple static site)
-- No build process required - direct file serving
