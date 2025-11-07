@@ -36,7 +36,7 @@ let currentFact = "";
 
 // Initialize EmailJS (you'll need to replace with your actual public key)
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY_HERE"); // Replace with your EmailJS public key
+    emailjs.init("NfhW4FLzyD_Q43E5O"); // Replace with your EmailJS public key
 })();
 
 // Generate random fact
@@ -70,7 +70,7 @@ async function sendEmail() {
         };
 
         // Send email using EmailJS
-        await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
+        await emailjs.send('service_i1a9a8p', 'template_zwcnyle', templateParams);
         
         showStatus('Email sent successfully to sj@genco-oil.com!', 'success');
         
