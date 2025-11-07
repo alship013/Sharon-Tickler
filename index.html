@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fact Email Sender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Random Fact Email Sender</h1>
+        <p>Send interesting random facts to sj@genco-oil.com</p>
+        
+        <div class="fact-display">
+            <h3>Next Fact:</h3>
+            <p id="fact-preview">Click "Generate Fact" to see what will be sent!</p>
+        </div>
+        
+        <div class="buttons">
+            <button id="generate-btn" class="btn btn-secondary">Generate Fact</button>
+            <button id="send-btn" class="btn btn-primary">Send Email</button>
+        </div>
+        
+        <div id="status" class="status"></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
